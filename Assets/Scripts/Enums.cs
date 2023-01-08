@@ -10,3 +10,10 @@ public enum LiveState
     Alive,
     Dead
 }
+
+public enum MinionState
+{
+    Idle,
+    Loot,
+    Walk
+}
