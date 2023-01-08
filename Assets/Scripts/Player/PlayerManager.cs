@@ -29,6 +29,7 @@ namespace Player
         private void Start()
         {
             _playerHealthSystem.OnDead += _playerAnimationController.PlayDeadAnimation;
+            _playerHealthSystem.OnSpawn += _playerAnimationController.StopDeadAnimation;
             _playerAnimationController.SetAttackAnimationSpeed(_playerAttack.GetAttackSpeed());
         }
 

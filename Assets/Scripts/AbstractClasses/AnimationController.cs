@@ -27,6 +27,7 @@ namespace AbstractClasses
         {
             _animator.SetBool(Dead,true);
         }
+        
 
         public virtual void PlayAttackAnimation()
         {

@@ -1,6 +1,7 @@
 using System;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.Experimental.GlobalIllumination;
 
 namespace AbstractClasses
 {
@@ -8,11 +9,14 @@ namespace AbstractClasses
     {
         public LiveState LiveState;
         
-        [SerializeField] private int maxHealth = 100;
-        public int Health { get; private set; }
+        [SerializeField] protected int maxHealth = 100;
+        public int Health { get; set; }
 
         public Action<int> TakeDamage;
         public Action OnDead;
+
+        protected Rigidbody rb;
+        protected Collider coll;
 
         private void OnEnable()
         {
@@ -29,20 +33,22 @@ namespace AbstractClasses
         protected virtual void Awake()
         {
             Health = maxHealth;
+            rb = GetComponent<Rigidbody>();
+            coll = GetComponent<Collider>();
         }
 
         public void GetDamage(int damage)
         {
             Health -= damage;
-            
             if(Health <= 0) OnDead.Invoke();
         }
 
         public virtual void Die()
         {
+            Health = 0;
             LiveState = LiveState.Dead;
-            GetComponent<Rigidbody>().isKinematic = true;
-            Destroy(GetComponent<Collider>());
+            rb.isKinematic = true;
+            coll.enabled = false;
             Debug.Log(transform.name + " object death");
         }
     }

@@ -6,13 +6,6 @@ namespace Player
     {
         private const string AttackSpeedString = "AttackSpeed";
 
-        protected override void Awake()
-        {
-            base.Awake();
-            SetAttackAnimationSpeed(1);
-        }
-
-
         public override void PlayAttackAnimation()
         {
             _animator.SetBool(Attack,true);
@@ -26,6 +19,11 @@ namespace Player
         public void SetAttackAnimationSpeed(float speed)
         {
             _animator.SetFloat(AttackSpeedString, speed);
+        }
+        
+        public void StopDeadAnimation()
+        {
+            _animator.SetBool(Dead,false);
         }
     }
 }

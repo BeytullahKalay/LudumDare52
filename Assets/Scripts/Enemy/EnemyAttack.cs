@@ -42,10 +42,10 @@ namespace Enemy
         {
             Debug.Log(transform.name + " Attacked!");
             var hitPlayer = Physics.OverlapSphere(attackPosition.position, attackDetectRadius, whatIsPlayer);
+            
 
             if (hitPlayer.Length > 0)
             {
-                Debug.Log(hitPlayer.Length);
                 hitPlayer[0].GetComponent<PlayerHealthSystem>().TakeDamage?.Invoke(damage);
             }
     
