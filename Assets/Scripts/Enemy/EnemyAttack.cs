@@ -14,6 +14,7 @@ namespace Enemy
 
 
         public float AttackDistance { get; private set; }
+        public float TimeBetweenAttacks { get; private set; }
 
         private float _lastAttackTime = float.MinValue;
 
@@ -22,6 +23,7 @@ namespace Enemy
         private void Awake()
         {
             AttackDistance = attackDistance;
+            TimeBetweenAttacks = timeBetweenAttacks;
         }
 
 

@@ -27,7 +27,7 @@ namespace Managers
         
         public List<Field> fields = new List<Field>();
 
-        public Field GetLootableField()
+        public Field TryGetLootableField()
         {
             foreach (var field in fields)
             {

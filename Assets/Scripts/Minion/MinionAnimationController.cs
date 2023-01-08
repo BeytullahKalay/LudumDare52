@@ -8,24 +8,12 @@ namespace Minion
     {
         private const string Loot = "Loot";
 
-        public void DecideLootAnimationState(float distanceToLootPosition)
-        {
-            if (distanceToLootPosition <= 0.1f)
-            {
-                PlayLootAnimation();
-            }
-            else
-            {
-                StopLootAnimation();
-            }
-        }
-
-        private void PlayLootAnimation()
+        public void PlayLootAnimation()
         {
             _animator.SetBool(Loot,true);
         }
 
-        private void StopLootAnimation()
+        public void StopLootAnimation()
         {
             _animator.SetBool(Loot,false);
         }
