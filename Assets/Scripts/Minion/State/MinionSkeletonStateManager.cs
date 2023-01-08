@@ -20,7 +20,7 @@ namespace Minion.State
 
         private MinionSkeletonBaseState _currentState;
         public MinionSkeletonLootState LootState = new MinionSkeletonLootState();
-        public MinionSkeletonMoveState MoveState = new MinionSkeletonMoveState();
+        public MinionSkeletonTransferState TransferState = new MinionSkeletonTransferState();
 
         private void Awake()
         {

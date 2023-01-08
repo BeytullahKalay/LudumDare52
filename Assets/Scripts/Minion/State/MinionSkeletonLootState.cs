@@ -28,7 +28,7 @@ namespace Minion.State
             {
                 minionSkeleton.Loot.SetActive(true);
                 minionSkeleton.MinionAnimationController.StopLootAnimation();
-                minionSkeleton.SwitchState(minionSkeleton.MoveState);
+                minionSkeleton.SwitchState(minionSkeleton.TransferState);
             }
             else if (minionSkeleton.Agent.remainingDistance < .1f)
             {

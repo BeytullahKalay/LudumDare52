@@ -1,6 +1,6 @@
 namespace Minion.State
 {
-    public class MinionSkeletonMoveState : MinionSkeletonBaseState
+    public class MinionSkeletonTransferState : MinionSkeletonBaseState
     {
         public override void EnterState(MinionSkeletonStateManager minionSkeleton)
         {
@@ -16,6 +16,7 @@ namespace Minion.State
             {
                 minionSkeleton.Loot.SetActive(false);
                 minionSkeleton.CurrentLootTimeSeconds = 0;
+                EventManager.CollectGold?.Invoke();
                 minionSkeleton.SwitchState(minionSkeleton.LootState);
             }
         }
