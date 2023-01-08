@@ -17,6 +17,7 @@ namespace Base
             LiveState = LiveState.Dead;
             Debug.Log(transform.name + " object death");
             Debug.Log("GAME OVER");
+            EventManager.GameOver?.Invoke();
         }
 
         public override void GetDamage(int damage)

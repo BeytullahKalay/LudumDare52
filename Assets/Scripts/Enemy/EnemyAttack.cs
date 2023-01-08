@@ -48,7 +48,6 @@ namespace Enemy
 
             if (hitPlayer.Length > 0)
             {
-                Debug.Log("in");
                 hitPlayer[0].GetComponent<HealthSystem>().TakeDamage?.Invoke(damage);
             }
         }

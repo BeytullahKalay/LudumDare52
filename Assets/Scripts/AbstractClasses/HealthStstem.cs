@@ -47,14 +47,8 @@ namespace AbstractClasses
         public virtual void GetDamage(int damage)
         {
             Health -= damage;
-
             Health = Mathf.Clamp(Health, 0, maxHealth);
-
-            Debug.Log("Health: " + Health);
-            Debug.Log("Max Health: " + maxHealth);
-            
             slider.value = (float)Health / maxHealth;
-
             if (Health <= 0) OnDead.Invoke();
         }
 
