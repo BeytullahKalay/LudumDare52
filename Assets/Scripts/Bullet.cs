@@ -33,7 +33,6 @@ public class Bullet : MonoBehaviour
         var col = Physics.OverlapSphere(transform.position, detectRadius, whatIsEnemy);
         if (col.Length > 0)
         {
-            Debug.Log("Here!!");
             OnPlayer(col);
         }
     }

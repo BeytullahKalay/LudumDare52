@@ -1,16 +1,26 @@
 using AbstractClasses;
 using UnityEngine;
+using DG.Tweening;
 
 namespace Enemy
 {
     public class EnemyHealthSystem : HealthSystem
     {
-        private void Update()
+        [SerializeField] private Transform soul;
+
+        protected override void Awake()
         {
-            if (Input.GetKeyDown(KeyCode.Space))
+            base.Awake();
+            OnDead += SoulWaveEffect;
+        }
+
+        private void SoulWaveEffect()
+        {
+            soul.gameObject.SetActive(true);
+            soul.DOMoveY(2, 2).OnComplete(() =>
             {
-                TakeDamage?.Invoke(50);
-            }
+                soul.DOMoveY(1, 2).SetLoops(-1, LoopType.Yoyo);
+            });
         }
     }
 }

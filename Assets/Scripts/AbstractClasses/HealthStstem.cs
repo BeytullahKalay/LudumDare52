@@ -1,7 +1,6 @@
 using System;
 using Interfaces;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
 
 namespace AbstractClasses
 {
