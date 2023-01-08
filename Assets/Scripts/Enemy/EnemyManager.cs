@@ -29,6 +29,7 @@ namespace Enemy
             _enemyHealthSystem.OnDead += _enemyAnimationController.PlayDeadAnimation;
             _enemyHealthSystem.OnDead += _soulHarvest.SetIsDeadTrue;
             _enemyMovement.SetAgentStopDistance(_enemyAttack.AttackDistance);
+            _enemyAttack.SetLayers(_enemyMovement.GetTarget());
             
         }
 

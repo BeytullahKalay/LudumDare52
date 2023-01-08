@@ -20,12 +20,18 @@ public class GameManager : MonoBehaviour
 
     #endregion
 
-
+    [Header("Transforms")]
     [SerializeField] private Transform player;
     [SerializeField] private Transform baseBuild;
-    [SerializeField] private Transform playerSpawnPosition;
+
+    [Header("LayerMask")]
+    [SerializeField] private LayerMask playerLayerMask;
+    [SerializeField] private LayerMask baseLayerMask;
 
     public Transform Player => player;
     public Transform BaseBuild => baseBuild;
-    public Transform PlayerSpawnPosition => playerSpawnPosition;
+
+    
+    public LayerMask PlayerLayerMask => playerLayerMask;
+    public LayerMask BaseLayerMask => baseLayerMask;
 }

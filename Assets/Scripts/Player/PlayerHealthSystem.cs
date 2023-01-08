@@ -25,8 +25,9 @@ namespace Player
             _playerLookAt = GetComponent<PlayerLookAt>();
         }
 
-        private void Start()
+        public override void Start()
         {
+            base.Start();
             _coroutine = RespawnPlayerAfter(spawnAfterSeconds);
         }
 

@@ -1,14 +1,17 @@
 using System;
 using Interfaces;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace AbstractClasses
 {
-    public abstract class HealthSystem : MonoBehaviour,IHealthSystem
+    public abstract class HealthSystem : MonoBehaviour, IHealthSystem
     {
         public LiveState LiveState;
-        
+
         [SerializeField] protected int maxHealth = 100;
+        [SerializeField] private Slider slider;
+
         public int Health { get; set; }
 
         public Action<int> TakeDamage;
@@ -31,23 +34,36 @@ namespace AbstractClasses
 
         protected virtual void Awake()
         {
-            Health = maxHealth;
             rb = GetComponent<Rigidbody>();
             coll = GetComponent<Collider>();
         }
 
-        public void GetDamage(int damage)
+        public virtual void Start()
+        {
+            Health = maxHealth;
+            slider.value = Health / maxHealth;
+        }
+
+        public virtual void GetDamage(int damage)
         {
             Health -= damage;
-            if(Health <= 0) OnDead.Invoke();
+
+            Health = Mathf.Clamp(Health, 0, maxHealth);
+
+            Debug.Log("Health: " + Health);
+            Debug.Log("Max Health: " + maxHealth);
+            
+            slider.value = (float)Health / maxHealth;
+
+            if (Health <= 0) OnDead.Invoke();
         }
 
         public virtual void Die()
         {
-            Health = 0;
             LiveState = LiveState.Dead;
             rb.isKinematic = true;
             coll.enabled = false;
+            slider.gameObject.SetActive(false);
             Debug.Log(transform.name + " object death");
         }
     }

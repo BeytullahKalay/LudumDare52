@@ -84,5 +84,10 @@ namespace Enemy
         {
             _agent.stoppingDistance = stopDistance;
         }
+
+        public EnemyTarget GetTarget()
+        {
+            return target;
+        }
     }
 }

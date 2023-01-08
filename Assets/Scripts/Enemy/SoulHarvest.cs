@@ -5,7 +5,7 @@ namespace Enemy
     public class SoulHarvest : MonoBehaviour
     {
         [SerializeField] private float interactRange = 5f;
-        [SerializeField] private GameObject canvasGameObject;
+        [SerializeField] private GameObject imageGameObject;
         [SerializeField] private LayerMask whatIsPlayer;
         [SerializeField][Range(0,1)] private float harvestChance = .1f;
         
@@ -28,15 +28,12 @@ namespace Enemy
         private void Interact()
         {
             if (!_canHarvest) return;
-            
-            
-            canvasGameObject.transform.LookAt(_camera.transform.position);
 
             var coll = Physics.OverlapSphere(transform.position, interactRange, whatIsPlayer);
 
             if (coll.Length > 0 && _isDead)
             {
-                canvasGameObject.SetActive(true);
+                imageGameObject.SetActive(true);
 
                 if (Input.GetKeyDown(KeyCode.E))
                 {
@@ -46,7 +43,7 @@ namespace Enemy
             }
             else
             {
-                canvasGameObject.SetActive(false);
+                imageGameObject.SetActive(false);
             }
         }
 
