@@ -23,7 +23,7 @@ namespace Base
         public override void GetDamage(int damage)
         {
             base.GetDamage(damage);
-            transform.DOShakeScale(.2f, Vector3.one * .75f, 10);
+            transform.DOShakeScale(.2f, Vector3.one * .25f, 10);
         }
     }
 }

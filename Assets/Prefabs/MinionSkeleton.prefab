@@ -1490,7 +1490,7 @@ MonoBehaviour:
   Loot: {fileID: 3165176063627237539}
   Agent: {fileID: 60631986019715801}
   MinionAnimationController: {fileID: 60631986019715805}
-  imageGameObject: {fileID: 1868403141}
+  ImageGameObject: {fileID: 1868403141}
 --- !u!1 &6736421872030384235
 GameObject:
   m_ObjectHideFlags: 0

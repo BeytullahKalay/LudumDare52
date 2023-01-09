@@ -6,7 +6,7 @@ namespace Minion.State
     {
         public override void EnterState(MinionSkeletonStateManager minionSkeleton)
         {
-            minionSkeleton.imageGameObject.SetActive(false);
+            minionSkeleton.ImageGameObject.SetActive(false);
             
             minionSkeleton.Loot.SetActive(false);
         

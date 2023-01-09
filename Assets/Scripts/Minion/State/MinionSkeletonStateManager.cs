@@ -19,7 +19,7 @@ namespace Minion.State
         
         public MinionAnimationController MinionAnimationController;
         
-        public GameObject imageGameObject;
+        public GameObject ImageGameObject;
 
         private MinionSkeletonBaseState _currentState;
         public MinionSkeletonIdleState IdleState = new MinionSkeletonIdleState();

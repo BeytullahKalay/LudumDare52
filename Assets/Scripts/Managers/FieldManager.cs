@@ -29,17 +29,28 @@ namespace Managers
 
         public Field TryGetLootableField()
         {
+            Field returnField = null;
+            
             foreach (var field in fields)
             {
                 if (!field.State.IsOpen) continue;
 
                 if (field.State.IsEmpty)
                 {
-                    return field;
+                    returnField = field;
                 }
             }
 
-            return null;
+            if (returnField != null)
+            {
+                fields.Remove(returnField);
+                return returnField;
+            }
+            else
+            {
+                return null;
+            }
+
         }
     }
 }

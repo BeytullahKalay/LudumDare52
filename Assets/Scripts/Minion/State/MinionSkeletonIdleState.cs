@@ -6,11 +6,7 @@ namespace Minion.State
     {
         public override void EnterState(MinionSkeletonStateManager minionSkeleton)
         {
-            minionSkeleton.Loot.SetActive(false);
-
-            if (minionSkeleton.Field == null) minionSkeleton.Field = FieldManager.Instance.TryGetLootableField();
-
-            minionSkeleton.MinionAnimationController.PlayMoveAnimation(0);
+            LookForField(minionSkeleton);
         }
 
         public override void UpdateState(MinionSkeletonStateManager minionSkeleton)
@@ -20,6 +16,19 @@ namespace Minion.State
                 minionSkeleton.Field.State.IsEmpty = false;
                 minionSkeleton.SwitchState(minionSkeleton.LootState);
             }
+            // else
+            // {
+            //     LookForField(minionSkeleton);
+            // }
+        }
+        
+        private static void LookForField(MinionSkeletonStateManager minionSkeleton)
+        {
+            minionSkeleton.Loot.SetActive(false);
+
+            if (minionSkeleton.Field == null) minionSkeleton.Field = FieldManager.Instance.TryGetLootableField();
+
+            minionSkeleton.MinionAnimationController.PlayMoveAnimation(0);
         }
     }
 }

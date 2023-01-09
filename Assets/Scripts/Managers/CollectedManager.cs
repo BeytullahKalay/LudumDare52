@@ -26,7 +26,10 @@ namespace Managers
         
         
         [SerializeField] private TMP_Text tmpText;
+        [SerializeField] private int needGoldToWinGame = 200;
+        
         public int CollectedGoldAmount;
+        
 
         private void OnEnable()
         {
@@ -50,7 +53,7 @@ namespace Managers
             CollectedGoldAmount += goldAmount;
             EventManager.UpdateUI?.Invoke(CollectedGoldAmount);
 
-            if (CollectedGoldAmount >= 50)
+            if (CollectedGoldAmount >= needGoldToWinGame)
             {
                 Debug.Log("Level Completed!");
             }
@@ -58,7 +61,7 @@ namespace Managers
 
         private void UpdateTempText(int goldAmount)
         {
-            tmpText.text = goldAmount + "/200";
+            tmpText.text = goldAmount + "/" + needGoldToWinGame;
         }
     }
 }
