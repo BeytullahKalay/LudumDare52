@@ -12,6 +12,8 @@ namespace Enemy.State
             enemy.Agent.isStopped = true;
             
             enemy.AnimationController.PlayDeadAnimation();
+
+            enemy.EnemyHealth.DestroyLight();
         }
 
         public override void UpdateState(EnemyStateManager enemy)

@@ -17,11 +17,6 @@ namespace Enemy
             _canHarvest = Random.value < harvestChance;
         }
 
-        // private void Update()
-        // {
-        //     Interact();
-        // }
-
         public void Interact()
         {
             if (!_canHarvest) return;

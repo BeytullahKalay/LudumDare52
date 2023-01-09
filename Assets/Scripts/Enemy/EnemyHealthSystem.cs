@@ -8,7 +8,8 @@ namespace Enemy
     public class EnemyHealthSystem : HealthSystem
     {
         [SerializeField] private Transform soul;
-        [SerializeField] private Transform gold;
+        [SerializeField] private GameObject gold;
+        [SerializeField] GameObject lightObject;
 
         private SoulHarvest _soulHarvest;
 
@@ -27,7 +28,9 @@ namespace Enemy
             }
             else
             {
-                Swing(gold);
+                var obj = Instantiate(gold, transform.position, gold.transform.rotation);
+                Swing(obj.transform);
+                Destroy(gameObject);
             }
         }
 
@@ -36,6 +39,11 @@ namespace Enemy
             swingObject.gameObject.SetActive(true);
             swingObject.DOMoveY(2, 2).OnComplete(() => { swingObject.DOMoveY(1, 2).SetLoops(-1, LoopType.Yoyo); });
             swingObject.DORotate(Vector3.one * 360,1 ).SetLoops(-1, LoopType.Yoyo);
+        }
+
+        public void DestroyLight()
+        {
+            Destroy(lightObject);
         }
     }
 }
