@@ -5,6 +5,7 @@ using DG.Tweening;
 namespace Enemy
 {
     [RequireComponent(typeof(SoulHarvest))]
+    [RequireComponent(typeof(DropUpgrade))]
     public class EnemyHealthSystem : HealthSystem
     {
         [SerializeField] private Transform soul;
@@ -12,15 +13,18 @@ namespace Enemy
         [SerializeField] GameObject lightObject;
 
         private SoulHarvest _soulHarvest;
+        private DropUpgrade _dropUpgrade;
 
         protected override void Awake()
         {
             base.Awake();
-            OnDead += SoulWaveEffect;
+            OnDead += Drops;
+            
             _soulHarvest = GetComponent<SoulHarvest>();
+            _dropUpgrade = GetComponent<DropUpgrade>();
         }
 
-        private void SoulWaveEffect()
+        private void Drops()
         {
             if (_soulHarvest.GetCanHarvest())
             {
@@ -28,10 +32,15 @@ namespace Enemy
             }
             else
             {
-                var obj = Instantiate(gold, transform.position, gold.transform.rotation);
-                Swing(obj.transform);
-                Destroy(gameObject);
+                Destroy(gameObject,2f);
+                _dropUpgrade.TryDrop();
             }
+            // else
+            // {
+            //     var obj = Instantiate(gold, transform.position, gold.transform.rotation);
+            //     Swing(obj.transform);
+            //     Destroy(gameObject);
+            // }
         }
 
         private void Swing(Transform swingObject)

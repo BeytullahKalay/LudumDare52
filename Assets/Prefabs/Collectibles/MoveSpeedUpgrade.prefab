@@ -114,7 +114,7 @@ MonoBehaviour:
   _color: {r: 0.18414807, g: 1, b: 0, a: 1}
   _light: {fileID: 7046164024735970821}
   _meshRenderer: {fileID: 7046164024487897718}
-  increaseMoveSpeedVal: 1.2
+  increaseMoveSpeedVal: 0.65
 --- !u!1 &7046164024735970818
 GameObject:
   m_ObjectHideFlags: 0

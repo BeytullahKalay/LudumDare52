@@ -12,7 +12,7 @@ namespace Enemy
 
         private void Awake()
         {
-            _drop = Random.value < upgradeDropChance;
+            _drop = Random.value <= upgradeDropChance;
         }
 
         public void TryDrop()

@@ -17,9 +17,9 @@ namespace Enemy
             _canHarvest = Random.value < harvestChance;
         }
 
-        public bool Interact()
+        public void Interact()
         {
-            if (!_canHarvest) return false;
+            if (!_canHarvest) return;
 
             var coll = Physics.OverlapSphere(transform.position, interactRange, whatIsPlayer);
 
@@ -37,8 +37,6 @@ namespace Enemy
             {
                 imageGameObject.SetActive(false);
             }
-
-            return true;
         }
 
 

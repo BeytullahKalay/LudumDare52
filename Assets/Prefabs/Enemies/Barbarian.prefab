@@ -249,7 +249,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
-  harvestChance: 0.1
+  harvestChance: 0.064
 --- !u!114 &7921899935737092217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b50c1eacbfba58f419377b2f6d398ff0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeDropChance: 0.17
+  upgradeDropChance: 0.35
 --- !u!1 &1072127019715217738
 GameObject:
   m_ObjectHideFlags: 0

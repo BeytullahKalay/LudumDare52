@@ -25,7 +25,7 @@ namespace Managers {
 
                 _lastSpawnTime = Time.time;
                 spawnTime -= decreaseSpeed;
-                spawnTime = Mathf.Clamp(spawnTime, .75f, Mathf.Infinity);
+                spawnTime = Mathf.Clamp(spawnTime, 2.5f, Mathf.Infinity);
             }
         }
 
