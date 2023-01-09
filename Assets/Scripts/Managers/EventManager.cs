@@ -8,4 +8,6 @@ public static class EventManager
     
     public static Action CollectGold;
     public static Action<int> UpdateUI;
+
+    public static Action OnFieldBuy;
 }

@@ -1,4 +1,6 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Enemy
 {
@@ -12,11 +14,8 @@ namespace Enemy
         private bool _isDead;
         private bool _canHarvest;
 
-        private Camera _camera;
-
-        private void Start()
+        private void Awake()
         {
-            _camera = Camera.main;
             _canHarvest = Random.value < harvestChance;
         }
 
@@ -56,6 +55,11 @@ namespace Enemy
         {
             if (!_isDead) return;
             Gizmos.DrawWireSphere(transform.position, interactRange);
+        }
+
+        public bool GetCanHarvest()
+        {
+            return _canHarvest;
         }
     }
 }

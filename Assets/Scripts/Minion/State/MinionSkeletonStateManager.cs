@@ -1,10 +1,12 @@
+using System;
+using FieldScripts;
+using Managers;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace Minion.State
 {
     [RequireComponent(typeof(NavMeshAgent))]
-    [RequireComponent(typeof(Animator))]
     [RequireComponent(typeof(MinionAnimationController))]
     public class MinionSkeletonStateManager : MonoBehaviour
     {
@@ -12,15 +14,26 @@ namespace Minion.State
     
         public float NeedLootTimeSeconds { get; private set; }
         public float CurrentLootTimeSeconds { get; set; }
-    
+
+        public Field Field;
         public GameObject Loot;
         public NavMeshAgent Agent;
-        public Animator Animator;
         public MinionAnimationController MinionAnimationController;
 
         private MinionSkeletonBaseState _currentState;
+        public MinionSkeletonIdleState IdleState = new MinionSkeletonIdleState();
         public MinionSkeletonLootState LootState = new MinionSkeletonLootState();
         public MinionSkeletonTransferState TransferState = new MinionSkeletonTransferState();
+
+        private void OnEnable()
+        {
+            EventManager.OnFieldBuy += RunStateMachine;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.OnFieldBuy -= RunStateMachine;
+        }
 
         private void Awake()
         {
@@ -30,7 +43,7 @@ namespace Minion.State
 
         private void Start()
         {
-            _currentState = LootState;
+            _currentState = IdleState;
             _currentState.EnterState(this);
         }
 
@@ -44,6 +57,15 @@ namespace Minion.State
             _currentState = state;
 
             _currentState.EnterState(this);
+        }
+        
+        private void RunStateMachine()
+        {
+            if (Field == null)
+            {
+                _currentState = IdleState;
+                _currentState.EnterState(this);
+            }
         }
     }
 }

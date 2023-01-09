@@ -1,4 +1,3 @@
-using System;
 using TMPro;
 using UnityEngine;
 
@@ -30,6 +29,11 @@ namespace Managers
         {
             collectedGoldAmount++;
             EventManager.UpdateUI?.Invoke(collectedGoldAmount);
+
+            if (collectedGoldAmount >= 50)
+            {
+                Debug.Log("Level Completed!");
+            }
         }
 
         private void UpdateTempText(int goldAmount)
