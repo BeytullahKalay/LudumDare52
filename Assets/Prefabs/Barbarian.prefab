@@ -182,8 +182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036abdc52bdc78045a945cfedad54715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: 0
-  moveSpeed: 4
+  target: 1
+  moveSpeed: 6
 --- !u!114 &6884421022155928090
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LiveState: 0
-  maxHealth: 100
+  maxHealth: 70
   slider: {fileID: 7898639198871427581}
   soul: {fileID: 1072127020896021967}
   gold: {fileID: 3669335555088209440, guid: 839c0b68401561643ba468158ba43274, type: 3}
@@ -248,7 +248,7 @@ MonoBehaviour:
   whatIsPlayer:
     serializedVersion: 2
     m_Bits: 128
-  harvestChance: 0.1
+  harvestChance: 1
 --- !u!1 &1072127019715217738
 GameObject:
   m_ObjectHideFlags: 0
