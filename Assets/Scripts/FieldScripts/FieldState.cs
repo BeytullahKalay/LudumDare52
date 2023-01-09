@@ -4,12 +4,12 @@ public struct FieldState
 {
     public bool IsOpen;
     public bool IsEmpty;
-    public int Health;
+    public int Cost;
 
-    public FieldState(bool isOpen, bool isEmpty,int health)
+    public FieldState(bool isOpen, bool isEmpty,int cost)
     {
         IsOpen = isOpen;
         IsEmpty = isEmpty;
-        Health = health;
+        Cost = cost;
     }
 }

@@ -16,7 +16,7 @@ namespace Minion.State
             {
                 minionSkeleton.Loot.SetActive(false);
                 minionSkeleton.CurrentLootTimeSeconds = 0;
-                EventManager.CollectGold?.Invoke();
+                EventManager.CollectGold?.Invoke(1);
                 minionSkeleton.SwitchState(minionSkeleton.LootState);
             }
         }

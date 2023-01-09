@@ -35,7 +35,6 @@ namespace Managers
 
                 if (field.State.IsEmpty)
                 {
-                    Debug.Log("Get From there");
                     return field;
                 }
             }

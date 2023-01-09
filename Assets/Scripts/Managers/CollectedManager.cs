@@ -5,32 +5,52 @@ namespace Managers
 {
     public class CollectedManager : MonoBehaviour
     {
-        [SerializeField] private TMP_Text tmpText;
-        [SerializeField] private int collectedGoldAmount;
+
+        #region Singleton
+
+        public static CollectedManager Instance;
         
+        private void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+        }
+
+        #endregion
+        
+        
+        [SerializeField] private TMP_Text tmpText;
+        public int CollectedGoldAmount;
+
         private void OnEnable()
         {
-            EventManager.CollectGold += CollectOneGold;
+            EventManager.CollectGold += CollectGold;
             EventManager.UpdateUI += UpdateTempText;
         }
 
         private void OnDisable()
         {
-            EventManager.CollectGold -= CollectOneGold;
+            EventManager.CollectGold -= CollectGold;
             EventManager.UpdateUI -= UpdateTempText;
         }
 
         private void Start()
         {
-            EventManager.UpdateUI?.Invoke(collectedGoldAmount);
+            EventManager.UpdateUI?.Invoke(CollectedGoldAmount);
         }
 
-        private void CollectOneGold()
+        private void CollectGold(int goldAmount)
         {
-            collectedGoldAmount++;
-            EventManager.UpdateUI?.Invoke(collectedGoldAmount);
+            CollectedGoldAmount += goldAmount;
+            EventManager.UpdateUI?.Invoke(CollectedGoldAmount);
 
-            if (collectedGoldAmount >= 50)
+            if (CollectedGoldAmount >= 50)
             {
                 Debug.Log("Level Completed!");
             }
@@ -38,7 +58,7 @@ namespace Managers
 
         private void UpdateTempText(int goldAmount)
         {
-            tmpText.text = "50/" + goldAmount;
+            tmpText.text = goldAmount + "/200";
         }
     }
 }

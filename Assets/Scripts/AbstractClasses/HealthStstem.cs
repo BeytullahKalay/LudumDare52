@@ -58,7 +58,6 @@ namespace AbstractClasses
             rb.isKinematic = true;
             coll.enabled = false;
             slider.gameObject.SetActive(false);
-            Debug.Log(transform.name + " object death");
         }
     }
 }
