@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -28,10 +29,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private LayerMask playerLayerMask;
     [SerializeField] private LayerMask baseLayerMask;
 
+    [Header("Upgrades")] [SerializeField] private List<GameObject> upgradeObjectList = new List<GameObject>();
+
     public Transform Player => player;
     public Transform BaseBuild => baseBuild;
 
     
     public LayerMask PlayerLayerMask => playerLayerMask;
     public LayerMask BaseLayerMask => baseLayerMask;
+
+
+    public GameObject GetRandomUpgrade => upgradeObjectList[Random.Range(0, upgradeObjectList.Count)];
 }

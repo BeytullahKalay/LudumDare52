@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Player
@@ -9,6 +10,16 @@ namespace Player
 
         private Rigidbody _rb;
 
+        private void OnEnable()
+        {
+            EventManager.CollectMoveSpeed += IncreaseMoveSpeed;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.CollectMoveSpeed -= IncreaseMoveSpeed;
+        }
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
@@ -17,6 +28,11 @@ namespace Player
         public void Move(Vector3 moveVector)
         {
             _rb.velocity = moveVector * moveSpeed;
+        }
+
+        private void IncreaseMoveSpeed(float speed)
+        {
+            moveSpeed += speed;
         }
     }
 }

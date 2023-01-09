@@ -18,7 +18,7 @@ namespace Enemy.State
 
         public override void UpdateState(EnemyStateManager enemy)
         {
-            enemy.SoulHarvest.Interact();
+            if(!enemy.SoulHarvest.Interact()) enemy.DropUpgrade.TryDrop();
         }
     }
 }

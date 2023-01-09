@@ -25,6 +25,8 @@ namespace Enemy.State
         
         public SoulHarvest SoulHarvest;
 
+        public DropUpgrade DropUpgrade;
+
 
         private EnemyBaseState _currentState;
         public EnemyAttackState AttackState = new EnemyAttackState();

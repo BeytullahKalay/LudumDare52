@@ -16,6 +16,17 @@ namespace Player
         private PlayerAnimationController _playerAnimationController;
         private PlayerAttack _playerAttack;
 
+        private void OnEnable()
+        {
+            EventManager.UpdateAnimationSpeed += UpdateAnimationSpeed;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.UpdateAnimationSpeed -= UpdateAnimationSpeed;
+        }
+
+
         private void Awake()
         {
             _movementInput = GetComponent<IMovementInput>();
@@ -42,6 +53,11 @@ namespace Player
         private void FixedUpdate()
         {
             _playerMovement.Move(_movementInput.MoveVector3);
+        }
+
+        private void UpdateAnimationSpeed()
+        {
+            _playerAnimationController.SetAttackAnimationSpeed(_playerAttack.GetAttackSpeed());
         }
     }
 }

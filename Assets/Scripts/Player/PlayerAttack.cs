@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Player
@@ -8,6 +9,16 @@ namespace Player
         [SerializeField] private Transform attackPositionTransform;
         [SerializeField] private float attackSpeed = 1;
         [SerializeField] private GameObject bulletPrefab;
+
+        private void OnEnable()
+        {
+            EventManager.CollectAttackSpeed += IncreaseAttackSpeedAnimation;
+        }
+
+        private void OnDisable()
+        {
+            EventManager.CollectAttackSpeed -= IncreaseAttackSpeedAnimation;
+        }
 
         public void Attack(KeyCode attackKey, PlayerAnimationController animationController)
         {
@@ -32,6 +43,12 @@ namespace Player
         public float GetAttackSpeed()
         {
             return attackSpeed;
+        }
+
+        private void IncreaseAttackSpeedAnimation(float increaseAmount)
+        {
+            attackSpeed += increaseAmount;
+            EventManager.UpdateAnimationSpeed?.Invoke();
         }
     }
 }

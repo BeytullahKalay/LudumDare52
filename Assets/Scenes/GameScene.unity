@@ -2070,8 +2070,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tmpText: {fileID: 2127600878}
-  needGoldToWinGame: 11
-  CollectedGoldAmount: 10
+  needGoldToWinGame: 200
+  CollectedGoldAmount: 2
 --- !u!4 &181598153
 Transform:
   m_ObjectHideFlags: 0
@@ -11821,12 +11821,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnObjects:
   - {fileID: 153575428434981597, guid: d105e4e13a4d156459c5ea42728511ec, type: 3}
+  - {fileID: 3084414285458963938, guid: f21a7afb19c52784cbd518310727aabf, type: 3}
   spawnPositions:
   - {fileID: 1633787045}
   - {fileID: 1396700692}
   - {fileID: 1468009378}
   - {fileID: 1177596655}
-  spawnTime: 10
+  spawnTime: 8
   decreaseSpeed: 0.25
 --- !u!4 &1158609998
 Transform:
@@ -12632,6 +12633,9 @@ MonoBehaviour:
   baseLayerMask:
     serializedVersion: 2
     m_Bits: 512
+  upgradeObjectList:
+  - {fileID: 1449171820661797876, guid: 6743c7eee85706d4687d942fc60816c6, type: 3}
+  - {fileID: 7046164024487897717, guid: 8808bd0b056af77499a5640091ffe3c2, type: 3}
 --- !u!4 &1238638703
 Transform:
   m_ObjectHideFlags: 0
@@ -16624,7 +16628,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1528523668}
   m_Layer: 5
-  m_Name: InGameUI
+  m_Name: GoldCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16637,7 +16641,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1528523667}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -21693,7 +21697,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2051850420}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.5610089, y: 0.5610089, z: 0.5610089}
   m_ConstrainProportionsScale: 0
@@ -22534,7 +22538,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127600876}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -22955,85 +22959,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
   m_IsActive: 1
---- !u!1001 &1566417051423786880
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2415577430667011928, guid: f21a7afb19c52784cbd518310727aabf,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 27
-      objectReference: {fileID: 0}
-    - target: {fileID: 2415577430667011928, guid: f21a7afb19c52784cbd518310727aabf,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.13
-      objectReference: {fileID: 0}
-    - target: {fileID: 2415577430667011928, guid: f21a7afb19c52784cbd518310727aabf,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2415577430667011928, guid: f21a7afb19c52784cbd518310727aabf,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -32.35
-      objectReference: {fileID: 0}
-    - target: {fileID: 2415577430667011928, guid: f21a7afb19c52784cbd518310727aabf,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.031184075
-      objectReference: {fileID: 0}
-    - target: {fileID: 2415577430667011928, guid: f21a7afb19c52784cbd518310727aabf,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2415577430667011928, guid: f21a7afb19c52784cbd518310727aabf,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.9995137
-      objectReference: {fileID: 0}
-    - target: {fileID: 2415577430667011928, guid: f21a7afb19c52784cbd518310727aabf,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2415577430667011928, guid: f21a7afb19c52784cbd518310727aabf,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2415577430667011928, guid: f21a7afb19c52784cbd518310727aabf,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 176.426
-      objectReference: {fileID: 0}
-    - target: {fileID: 2415577430667011928, guid: f21a7afb19c52784cbd518310727aabf,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3084414285458963938, guid: f21a7afb19c52784cbd518310727aabf,
-        type: 3}
-      propertyPath: m_Name
-      value: Knight
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004076405235362496, guid: f21a7afb19c52784cbd518310727aabf,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5004076405235362496, guid: f21a7afb19c52784cbd518310727aabf,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f21a7afb19c52784cbd518310727aabf, type: 3}
 --- !u!23 &1587545474547333607
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -24007,6 +23932,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6884421022155928103, guid: d105e4e13a4d156459c5ea42728511ec,
+        type: 3}
+      propertyPath: harvestChance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7898639199916795391, guid: d105e4e13a4d156459c5ea42728511ec,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -24393,7 +24323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f907cccf3e0f6a4797149ff0e2aac71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  damage: 40
   attackPositionTransform: {fileID: 835962244}
   attackSpeed: 1
   bulletPrefab: {fileID: 5280175911107301118, guid: 74f824cc266025f4d84d747fe8f754bd,
