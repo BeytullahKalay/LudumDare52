@@ -1,8 +1,7 @@
-using System;
 using FieldScripts;
-using Managers;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 namespace Minion.State
 {
@@ -11,19 +10,25 @@ namespace Minion.State
     public class MinionSkeletonStateManager : MonoBehaviour
     {
         [SerializeField] private float needLootTimeSeconds = 6;
-    
-        public float NeedLootTimeSeconds { get; private set; }
-        public float CurrentLootTimeSeconds { get; set; }
+        
 
         public Field Field;
+        
         public GameObject Loot;
+        
         public NavMeshAgent Agent;
+        
         public MinionAnimationController MinionAnimationController;
+        
+        public GameObject imageGameObject;
 
         private MinionSkeletonBaseState _currentState;
         public MinionSkeletonIdleState IdleState = new MinionSkeletonIdleState();
         public MinionSkeletonLootState LootState = new MinionSkeletonLootState();
         public MinionSkeletonTransferState TransferState = new MinionSkeletonTransferState();
+        
+        public float NeedLootTimeSeconds { get; private set; }
+        public float CurrentLootTimeSeconds { get; set; }
 
         private void OnEnable()
         {

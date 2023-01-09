@@ -42,7 +42,7 @@ namespace FieldScripts
             if (!State.IsOpen)
                 interactImage.gameObject.SetActive(true);
             
-            if (!Input.GetKeyDown(KeyCode.E)) return;
+            if (!Input.GetKey(KeyCode.E)) return;
 
             var amount = CollectedManager.Instance.CollectedGoldAmount;
 

@@ -6,6 +6,8 @@ namespace Minion.State
     {
         public override void EnterState(MinionSkeletonStateManager minionSkeleton)
         {
+            minionSkeleton.imageGameObject.SetActive(false);
+            
             minionSkeleton.Loot.SetActive(false);
         
             minionSkeleton.Agent.SetDestination(minionSkeleton.Field.transform.position);
