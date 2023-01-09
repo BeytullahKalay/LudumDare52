@@ -7,9 +7,7 @@ namespace Enemy
         public void TriggerAttackAnimation(bool canAttack)
         {
             if (canAttack)
-            {
                 PlayAttackAnimation();
-            }
         }
     }
 }

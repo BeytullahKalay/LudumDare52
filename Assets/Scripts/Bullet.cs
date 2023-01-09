@@ -1,5 +1,3 @@
-using System.Runtime.CompilerServices;
-using AbstractClasses;
 using Enemy;
 using UnityEngine;
 
@@ -25,10 +23,9 @@ public class Bullet : MonoBehaviour
     private void Update()
     {
         RotateCube();
-        DetectPlayer();
     }
 
-    private void DetectPlayer()
+    private void DetectEnemy()
     {
         var col = Physics.OverlapSphere(transform.position, detectRadius, whatIsEnemy);
         if (col.Length > 0)
@@ -51,6 +48,7 @@ public class Bullet : MonoBehaviour
     private void FixedUpdate()
     {
         transform.Translate(Vector3.forward * (moveSpeed * Time.fixedDeltaTime));
+        DetectEnemy();
     }
 
     private void OnDrawGizmos()

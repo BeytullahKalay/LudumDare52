@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -11,7 +10,6 @@ namespace Enemy
         [SerializeField] private LayerMask whatIsPlayer;
         [SerializeField][Range(0,1)] private float harvestChance = .1f;
         
-        private bool _isDead;
         private bool _canHarvest;
 
         private void Awake()
@@ -19,18 +17,18 @@ namespace Enemy
             _canHarvest = Random.value < harvestChance;
         }
 
-        private void Update()
-        {
-            Interact();
-        }
+        // private void Update()
+        // {
+        //     Interact();
+        // }
 
-        private void Interact()
+        public void Interact()
         {
             if (!_canHarvest) return;
 
             var coll = Physics.OverlapSphere(transform.position, interactRange, whatIsPlayer);
 
-            if (coll.Length > 0 && _isDead)
+            if (coll.Length > 0)
             {
                 imageGameObject.SetActive(true);
 
@@ -46,14 +44,10 @@ namespace Enemy
             }
         }
 
-        public void SetIsDeadTrue()
-        {
-            _isDead = true;
-        }
 
-        private void OnDrawGizmos()
+
+        private void OnDrawGizmosSelected()
         {
-            if (!_isDead) return;
             Gizmos.DrawWireSphere(transform.position, interactRange);
         }
 
