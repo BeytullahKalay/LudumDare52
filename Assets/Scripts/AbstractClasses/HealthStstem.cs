@@ -20,13 +20,13 @@ namespace AbstractClasses
         protected Rigidbody rb;
         protected Collider coll;
 
-        private void OnEnable()
+        protected virtual void OnEnable()
         {
             TakeDamage += GetDamage;
             OnDead += Die;
         }
 
-        private void OnDisable()
+        protected virtual void OnDisable()
         {
             TakeDamage -= GetDamage;
             OnDead -= Die;

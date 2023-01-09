@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 namespace Scenes.UIButtonActions
 {
-    public class GameOverScreenButtonActions : MonoBehaviour
+    public class ScreenOverButtonActions : MonoBehaviour
     {
         public void RestartGame()
         {

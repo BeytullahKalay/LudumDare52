@@ -56,6 +56,7 @@ namespace Managers
             if (CollectedGoldAmount >= needGoldToWinGame)
             {
                 Debug.Log("Level Completed!");
+                EventManager.Completed?.Invoke();
             }
         }
 

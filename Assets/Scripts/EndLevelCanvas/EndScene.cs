@@ -4,22 +4,30 @@ namespace EndLevelCanvas
 {
     public class EndScene : MonoBehaviour
     {
-        [SerializeField] private GameObject panelToOpen;
+        [SerializeField] private GameObject gameOverPanel;
+        [SerializeField] private GameObject levelCompletedPanel;
 
         private void OnEnable()
         {
-            EventManager.GameOver += OpenPanel;
+            EventManager.GameOver += OpenGameOverPanel;
+            EventManager.Completed += OpenLevelCompletedPanel;
         }
 
         private void OnDisable()
         {
-            EventManager.GameOver -= OpenPanel;
+            EventManager.GameOver -= OpenGameOverPanel;
+            EventManager.Completed -= OpenLevelCompletedPanel;
         }
 
 
-        private void OpenPanel()
+        private void OpenGameOverPanel()
         {
-            panelToOpen.SetActive(true);
+            gameOverPanel.SetActive(true);
+        }
+
+        private void OpenLevelCompletedPanel()
+        {
+            levelCompletedPanel.SetActive(true);
         }
     }
 }

@@ -6,6 +6,21 @@ namespace Base
 {
     public class BaseHealthSystem : HealthSystem
     {
+
+        private bool _canGetAttack = true;
+        
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            EventManager.Completed += SetCanGetAttackToFalse;
+        }
+        
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            EventManager.Completed -= SetCanGetAttackToFalse;
+        }
+
         protected override void Awake()
         {
             Health = maxHealth;
@@ -22,8 +37,15 @@ namespace Base
 
         public override void GetDamage(int damage)
         {
+            if(!_canGetAttack) return;
+            
             base.GetDamage(damage);
-            transform.DOShakeScale(.2f, Vector3.one * .25f, 10);
+            transform.DOShakeScale(.2f, Vector3.one * .1f, 20);
+        }
+
+        private void SetCanGetAttackToFalse()
+        {
+            _canGetAttack = false;
         }
     }
 }
